@@ -84,7 +84,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-
 LOCALE_PATHS = [BASE_DIR / 'locale']
 
 STATIC_URL = env('DJANGO_STATIC_URL', default='/static/')
@@ -117,6 +116,7 @@ DEFAULT_FROM_EMAIL = env(
     'EMAIL_HOST_USER',
     default='webmaster@localhost'
 )
+EMAIL_USE_HTML = True
 
 CACHES = {
     'default': {
@@ -179,4 +179,4 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440  # 2.5 MB
 FILE_UPLOAD_PERMISSIONS = 0o644
 
-PASSWORD_RESET_TIMEOUT = timedelta(minutes=env('VERIFICATION_TOKEN_EXPIRY', default=15)).total_seconds()
+

@@ -1,0 +1,29 @@
+{% extends 'account/base.html' %}
+{% block content %}
+    <div class="auth-form__icon auth-form__icon--reset-info">
+        <i class="bi bi-envelope-check"></i>
+    </div>
+
+    <h2 class="auth-form__title auth-form__title--reset-info">Подтверждение регистрации</h2>
+
+    <p class="confirmation-text confirmation-text--reset-info">
+        На указанный адрес электронной почты были отправлены инструкции по активации аккаунта.<br>
+        Если вы не получили письмо в течение нескольких минут, проверьте папку "Спам".
+    </p>
+
+    <div class="info-box info-box--reset-info">
+        <div class="info-box-title info-box-title--reset-info">
+            <i class="bi bi-info-circle"></i>
+            Что дальше?
+        </div>
+        <ul>
+            <li>Проверьте вашу электронную почту</li>
+            <li>Перейдите по ссылке из письма для активации аккаунта</li>
+            <li>Получите подтверждение активации и войдите на сайт</li>
+        </ul>
+    </div>
+    <div class="d-grid gap-2">
+        <a href="{% url 'auth:signin' %}" class="btn btn-auth btn-auth--reset-info">
+            Вернуться к входу
+        </a></div>
+{% endblock %}

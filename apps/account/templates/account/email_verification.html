@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Подтверждение email</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Здравствуйте!</h2>
+    <p>Спасибо за регистрацию. </p>
+    <p>Для активации вашего аккаунта, пожалуйста, перейдите по ссылке ниже:</p>
+
+    <a href="http://{{ domain }}/auth/verify/{{ uid }}/{{ token }}/" class="button">
+        Подтвердить email
+    </a>
+
+    <p>Если кнопка выше не работает, вы можете скопировать следующую ссылку в адресную строку браузера:</p>
+    <small>http://{{ domain }}/auth/verify/{{ uid }}/{{ token }}/</small>
+
+    <div class="footer">
+        <p>Это автоматическое сообщение, пожалуйста, не отвечайте на него.</p>
+        <p>Ссылка действительна в течение 24 часов.</p>
+    </div>
+</div>
+</body>
+</html>

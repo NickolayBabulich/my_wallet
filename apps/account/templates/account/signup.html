@@ -1,0 +1,79 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+    <div class="auth-form__icon">
+        <i class="bi bi-person-plus"></i>
+    </div>
+    <h2 class="auth-form__title">Создание аккаунта</h2>
+    <form id="registrationForm" method="post" novalidate>
+        {% csrf_token %}
+
+        {# Email поле #}
+        <div class="form-floating mb-3">
+            <input type="email"
+                   class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+                   id="{{ form.email.id_for_label }}"
+                   name="{{ form.email.html_name }}"
+                   placeholder="name@example.com"
+                   value="{{ form.email.value|default:'' }}"
+                   required>
+            <label for="{{ form.email.id_for_label }}">Электронная почта</label>
+            {% if form.email.errors %}
+                <div class="invalid-feedback">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
+            {% if form.email.help_text %}
+                <div class="form-text">{{ form.email.help_text }}</div>
+            {% endif %}
+        </div>
+
+        {# Password1 поле #}
+        <div class="form-floating mb-3">
+            <input type="password"
+                   class="form-control {% if form.password1.errors %}is-invalid{% endif %}"
+                   id="{{ form.password1.id_for_label }}"
+                   name="{{ form.password1.html_name }}"
+                   placeholder="Password"
+                   required>
+            <label for="{{ form.password1.id_for_label }}">Пароль</label>
+            {% if form.password1.errors %}
+                <div class="invalid-feedback">
+                    {{ form.password1.errors }}
+                </div>
+            {% endif %}
+
+        </div>
+
+        {# Password2 поле #}
+        <div class="form-floating mb-3">
+            <input type="password"
+                   class="form-control {% if form.password2.errors %}is-invalid{% endif %}"
+                   id="{{ form.password2.id_for_label }}"
+                   name="{{ form.password2.html_name }}"
+                   placeholder="Confirm Password"
+                   required>
+            <label for="{{ form.password2.id_for_label }}">Подтверждение пароля</label>
+            {% if form.password2.errors %}
+                <div class="invalid-feedback">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        {% if form.non_field_errors %}123
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <div class="d-grid gap-2 mt-4">
+            <button type="submit" class="btn btn-register text-white">Зарегистрироваться</button>
+        </div>
+        <div class="back-to-login">
+            <a href="{% url 'auth:signin' %}">
+                <i class="bi bi-arrow-left"></i> Вернуться к входу
+            </a>
+        </div>
+    </form>
+{% endblock %}

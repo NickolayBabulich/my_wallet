@@ -1,0 +1,36 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+    <div class="auth-form__icon auth-form__icon--reset-info">
+        <i class="bi bi-exclamation-circle"></i>
+    </div>
+
+    <h2 class="auth-form__title confirmation-title--complete">Подтверждение регистрации</h2>
+
+    <div class="info-box info-box--error">
+        <div class="info-box-title info-box-title--error">
+            <i class="bi bi-x-circle"></i>
+            Срок действия ссылки истек
+        </div>
+        <p class="mb-0">
+            Ссылка для активации аккаунта устарела или недействительна.<br>
+            Ваш профиль был удален из системы в целях безопасности.
+        </p>
+    </div>
+
+    <p class="confirmation-text confirmation-text--complete">
+        Пожалуйста, пройдите процесс регистрации заново, чтобы создать новую учетную запись.
+    </p>
+
+    <div class="d-grid gap-2">
+        <a href="{% url 'auth:signup' %}" class="btn btn-auth btn-auth--complete">
+            Зарегистрироваться
+        </a>
+    </div>
+
+    <div class="back-to-login">
+        <a href="{% url 'auth:signin' %}">
+            <i class="bi bi-arrow-left me-1"></i>Вернуться на страницу входа
+        </a>
+    </div>
+{% endblock %}

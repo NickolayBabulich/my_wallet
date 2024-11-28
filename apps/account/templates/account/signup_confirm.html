@@ -1,0 +1,28 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+
+    <div class="auth-form__icon auth-form__icon--complete">
+        <i class="bi bi-check-lg"></i>
+    </div>
+
+    <h2 class="auth-form__title confirmation-title--complete">Аккаунт подтвержден!</h2>
+
+    <div class="info-box info-box--complete">
+        <div class="info-box-title">
+            <i class="bi bi-shield-check"></i>
+            Все готово
+        </div>
+        <p class="mb-0">
+            Вы успешно подтвердили ваш аккаунт.<br>Теперь вы можете использовать его для входа в систему.
+        </p>
+    </div>
+
+    <p class="confirmation-text confirmation-text--complete">
+        Для продолжения работы, пожалуйста, войдите в систему используя ваш зарегистрированный аккаунт или нажмите продолжить.
+    </p>
+    <div class="d-grid gap-2">
+        <a href="{% url 'auth:signin' %}" class="btn btn-auth btn-auth--complete">
+            Продолжить
+        </a></div>
+{% endblock %}
